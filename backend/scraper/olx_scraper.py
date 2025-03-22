@@ -6,5 +6,5 @@ class OLXScraper(BaseScraper):
         super().__init__("https://www.olx.pl")
 
     def scrape(self):
-        self.open_page()
-        #self.close()
+        self.open()
+        # self.close()

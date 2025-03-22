@@ -4,6 +4,7 @@ from backend.scraper.olx_scraper import OLXScraper
 
 app = FastAPI()
 
+
 @app.get("/search")
 def search():
     scraper = OLXScraper()

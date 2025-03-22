@@ -7,6 +7,7 @@ from abc import ABC, abstractmethod
 
 CHROME_FOR_TESTING_API = "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json"
 
+
 class BaseScraper(ABC):
     def __init__(self, url):
         self.url = url
@@ -41,7 +42,7 @@ class BaseScraper(ABC):
 
         return str(driver_executable)
 
-    def open_page(self):
+    def open(self):
         self.driver.get(self.url)
 
     @abstractmethod
