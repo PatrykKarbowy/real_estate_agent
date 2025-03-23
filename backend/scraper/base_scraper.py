@@ -11,11 +11,11 @@ CHROME_FOR_TESTING_API = "https://googlechromelabs.github.io/chrome-for-testing/
 class BaseScraper(ABC):
     def __init__(self, url):
         self.url = url
-        self.driver_path = self.get_chromedriver()
+        self.driver_path = self._get_chromedriver()
         self.service = Service(self.driver_path)
         self.driver = webdriver.Chrome(service=self.service)
 
-    def get_chromedriver(self):
+    def _get_chromedriver(self):
         response = requests.get(CHROME_FOR_TESTING_API).json()
         version_info = response["channels"]["Stable"]
         chromedriver_url = next(
@@ -42,11 +42,11 @@ class BaseScraper(ABC):
 
         return str(driver_executable)
 
-    def open(self):
-        self.driver.get(self.url)
+    def open(self, city):
+        self.driver.get(f"{self.url}/{city}")
 
     @abstractmethod
-    def scrape(self, filters):
+    def scrape(self):
         pass
 
     def close(self):
