@@ -8,5 +8,10 @@ app = FastAPI()
 @app.get("/search")
 def search(city: str):
     scraper = OLXScraper(city)
-    scraper.scrape();
-    return {"test": "test"}
+    scraper.open()
+    listings = scraper.scrape()
+    return {"city": city, "listings": listings}
+
+@app.get("/chat")
+def test():
+    pass
