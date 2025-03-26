@@ -1,6 +1,5 @@
 import streamlit as st
 import requests
-import json
 
 st.title("Znajdź swoją nieruchomość z AI!")
 
@@ -19,7 +18,7 @@ if st.button("Szukaj"):
             data = response.json()
 
             # Store the fetched data in session state to persist across reruns
-            st.session_state.dom_content = data.get("listings", [])
+            st.session_state.dom_content = data["listings"]
 
         else:
             st.error("Błąd podczas pobierania ofert. Sprawdź połączenie z serwerem.")

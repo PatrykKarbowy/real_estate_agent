@@ -3,4 +3,4 @@ from pydantic import BaseModel
 
 class ChatRequest(BaseModel):
     query: str
-    listings: list
+    listings: str

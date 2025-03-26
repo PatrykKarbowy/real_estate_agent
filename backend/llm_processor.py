@@ -1,12 +1,13 @@
 import os
 import json
 import requests
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
 load_dotenv()
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+
 
 def parse_query(user_query: str):
     headers = {

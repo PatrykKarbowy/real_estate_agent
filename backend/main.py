@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 
 from backend.chat_request import ChatRequest
 from backend.llm_processor import parse_query
@@ -19,8 +19,4 @@ def chat(chat_request: ChatRequest):
     user_query = f"{chat_request.query}\n\nHere are the listings:\n{chat_request.listings}"
     response = parse_query(user_query)
 
-    if isinstance(response, dict) and "error" in response:
-        raise HTTPException(status_code=500, detail=response["error"])
-
-    print("działa")
     return {"response": response}
