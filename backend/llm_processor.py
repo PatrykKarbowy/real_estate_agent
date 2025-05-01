@@ -1,7 +1,7 @@
 import os
 import json
 import requests
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -23,7 +23,7 @@ def parse_query(user_query: str):
     })
 
     payload = {
-        "model": "google/gemini-2.5-pro-exp-03-25:free",
+        "model": "meta-llama/llama-4-scout:free",
         "messages": conversation_history
     }
 
