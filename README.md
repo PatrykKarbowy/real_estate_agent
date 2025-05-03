@@ -29,8 +29,8 @@ This project is a full-stack AI-powered real estate assistant that helps users f
 
 ## Demo Screenshot
 
-![App Screenshot](assets/1.png)
-![App Screenshot](assets/2.png)
+![App Screenshot](assets/1.PNG)
+![App Screenshot](assets/2.PNG)
 ---
 
 ## Installation
