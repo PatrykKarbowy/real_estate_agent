@@ -22,7 +22,7 @@ if search_submitted:
             data = response.json()
             st.session_state.dom_content = data.get("listings", [])
             st.session_state.chat_history = []
-            st.success(f"Znaleziono {len(st.session_state.dom_content)} ofert.")
+            st.success(f"Znaleziono oferty!")
         else:
             st.error("Błąd podczas pobierania ofert. Sprawdź połączenie z serwerem.")
     else:
