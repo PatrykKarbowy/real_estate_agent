@@ -1,5 +1,3 @@
-from bs4 import BeautifulSoup
-
 from backend.scraper.base_scraper import BaseScraper
 
 

@@ -11,12 +11,13 @@ if "chat_history" not in st.session_state:
 
 with st.form("search_form", clear_on_submit=False):
     city_input = st.text_input("Wpisz miasto, w którym chcesz znaleźć nieruchomości")
+    source_input = st.selectbox("Wybierz źródło danych", ["olx", "gratka", "otodom"], index=0)
     search_submitted = st.form_submit_button("Szukaj")
 
 if search_submitted:
     if city_input.strip():
         st.info("Wyszukiwanie nieruchomości...")
-        response = requests.get("http://localhost:8000/search", params={"city": city_input})
+        response = requests.get("http://localhost:8000/search", params={"city": city_input, "source": source_input})
         if response.status_code == 200:
             data = response.json()
             st.session_state.dom_content = data.get("listings", [])
